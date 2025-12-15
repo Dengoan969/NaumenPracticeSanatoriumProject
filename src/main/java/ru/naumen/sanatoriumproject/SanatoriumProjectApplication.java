@@ -14,9 +14,9 @@ import ru.naumen.sanatoriumproject.repositories.UserRepository;
 import java.util.Set;
 
 @SpringBootApplication
-public class SanatoriumApplication {
+public class SanatoriumProjectApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SanatoriumApplication.class, args);
+        SpringApplication.run(SanatoriumProjectApplication.class, args);
     }
 
     @Bean
