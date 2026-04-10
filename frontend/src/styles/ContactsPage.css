@@ -1,197 +1,197 @@
 /* Обёртка для страницы */
 .contacts-wrapper {
-    width: 1109px;
-    max-width: 100%;
-    margin: 132px auto 0;
-    padding: 0 0 60px;
+  width: 1109px;
+  max-width: 100%;
+  margin: 132px auto 0;
+  padding: 0 0 60px;
 }
 
 /* Основной контейнер */
 .contacts-container {
-    width: 100%;
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Шапка страницы */
 .contacts-header {
-    padding: 40px 70px;
-    border-bottom: 1px solid #eee;
+  padding: 40px 70px;
+  border-bottom: 1px solid #eee;
 }
 
 .contacts-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    font-weight: 700;
-    color: #333;
-    margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
 }
 
 /* Основное содержимое */
 .contacts-content {
-    padding: 40px 70px;
+  padding: 40px 70px;
 }
 
 /* Секции */
 .contacts-section {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: #196397;
-    margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #196397;
+  margin-bottom: 20px;
 }
 
 /* Карточки контактов */
 .contact-info {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .contact-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 20px;
-    background: #f9f9f9;
-    border-radius: 12px;
-    transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
 .contact-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .contact-icon {
-    width: 50px;
-    height: 50px;
-    background: rgba(35, 97, 142, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background: rgba(35, 97, 142, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .contact-icon svg {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .contact-details {
-    flex: 1;
+  flex: 1;
 }
 
 .contact-title {
-    font-family: 'Raleway', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #196397;
-    margin: 0 0 8px 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #196397;
+  margin: 0 0 8px 0;
 }
 
 .contact-text {
-    font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333;
-    margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
 }
 
 /* Секции органов власти */
 .authority-section {
-    margin-bottom: 30px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee;
 }
 
 .authority-section:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .authority-title {
-    font-family: 'Raleway', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #196397;
-    margin: 0 0 10px 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #196397;
+  margin: 0 0 10px 0;
 }
 
 .authority-address {
-    font-family: 'Raleway', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #666;
-    margin: 0 0 10px 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666;
+  margin: 0 0 10px 0;
 }
 
 .authority-contacts {
-    font-family: 'Raleway', sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    color: #333;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
 }
 
 .authority-contacts p {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .contacts-wrapper {
-        margin: 80px auto 0;
-        padding: 0 20px;
-    }
+  .contacts-wrapper {
+    margin: 80px auto 0;
+    padding: 0 20px;
+  }
 
-    .contacts-header,
-    .contacts-content {
-        padding: 30px;
-    }
+  .contacts-header,
+  .contacts-content {
+    padding: 30px;
+  }
 
-    .contacts-title {
-        font-size: 32px;
-    }
+  .contacts-title {
+    font-size: 32px;
+  }
 
-    .section-title {
-        font-size: 24px;
-    }
+  .section-title {
+    font-size: 24px;
+  }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
-    .contacts-header,
-    .contacts-content {
-        padding: 20px;
-    }
+  .contacts-header,
+  .contacts-content {
+    padding: 20px;
+  }
 
-    .contacts-title {
-        font-size: 28px;
-    }
+  .contacts-title {
+    font-size: 28px;
+  }
 
-    .section-title {
-        font-size: 22px;
-    }
+  .section-title {
+    font-size: 22px;
+  }
 
-    .contact-card {
-        flex-direction: column;
-        gap: 15px;
-    }
+  .contact-card {
+    flex-direction: column;
+    gap: 15px;
+  }
 }

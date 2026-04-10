@@ -1,254 +1,256 @@
 /* Обёртка для страницы */
 .sp-wrapper {
-    width: 1109px;
-    max-width: 100%;
-    margin: 132px auto 0;
-    padding: 0 0 60px;
+  width: 1109px;
+  max-width: 100%;
+  margin: 132px auto 0;
+  padding: 0 0 60px;
 }
 
 /* Основной контейнер */
 .sp-container {
-    width: 100%;
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Шапка страницы */
 .sp-header {
-    padding: 40px 70px;
-    border-bottom: 1px solid #eee;
+  padding: 40px 70px;
+  border-bottom: 1px solid #eee;
 }
 
 .sp-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    font-weight: 700;
-    color: #333;
-    margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
 }
 
 /* Основное содержимое */
 .sp-content {
-    padding: 40px 70px;
+  padding: 40px 70px;
 }
 
 /* Секции */
 .sp-section {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .sp-section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: #196397;
-    margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #196397;
+  margin-bottom: 20px;
 }
 
 /* Карточки услуг */
 .sp-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
 }
 
 .sp-service-card {
-    padding: 25px;
-    border-radius: 12px;
-    background: #f9f9f9;
-    transition: all 0.3s ease;
+  padding: 25px;
+  border-radius: 12px;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
 }
 
 .sp-service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .sp-service-icon {
-    width: 50px;
-    height: 50px;
-    background: rgba(35, 97, 142, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: rgba(35, 97, 142, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
 .sp-service-icon svg {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .sp-service-title {
-    font-family: 'Raleway', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #196397;
-    margin: 0 0 10px 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #196397;
+  margin: 0 0 10px 0;
 }
 
 .sp-service-text {
-    font-family: 'Raleway', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #666;
-    margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666;
+  margin: 0;
 }
 
 /* Сообщения */
 .sp-loading-message,
 .sp-error-message,
 .sp-no-procedures {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .sp-loading-message p,
 .sp-error-message p,
 .sp-no-procedures p {
-    font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    margin-top: 15px;
-    color: #333;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  margin-top: 15px;
+  color: #333;
 }
 
 .sp-error-message {
-    color: #d32f2f;
+  color: #d32f2f;
 }
 
 .sp-error-message svg {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .sp-no-procedures svg {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 /* Спиннер загрузки */
 .sp-spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid rgba(35, 97, 142, 0.2);
-    border-radius: 50%;
-    border-top-color: #23618E;
-    animation: sp-spin 1s ease-in-out infinite;
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(35, 97, 142, 0.2);
+  border-radius: 50%;
+  border-top-color: #23618e;
+  animation: sp-spin 1s ease-in-out infinite;
 }
 
 @keyframes sp-spin {
-    to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Группировка по кабинетам */
 .sp-cabinets-container {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
 .sp-cabinet-card {
-    background: #f9f9f9;
-    border-radius: 12px;
-    padding: 20px;
-    transition: all 0.3s ease;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
 }
 
 .sp-cabinet-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .sp-cabinet-title {
-    font-family: 'Raleway', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #196397;
-    margin: 0 0 15px 0;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #196397;
+  margin: 0 0 15px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
 }
 
 .sp-procedures-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
 }
 
 .sp-procedure-item {
-    padding: 15px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .sp-procedure-name {
-    font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    margin: 0 0 5px 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 5px 0;
 }
 
 .sp-procedure-duration {
-    font-family: 'Raleway', sans-serif;
-    font-size: 14px;
-    color: #666;
-    margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  color: #666;
+  margin: 0;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .sp-wrapper {
-        margin: 80px auto 0;
-        padding: 0 20px;
-    }
+  .sp-wrapper {
+    margin: 80px auto 0;
+    padding: 0 20px;
+  }
 
-    .sp-header,
-    .sp-content {
-        padding: 30px;
-    }
+  .sp-header,
+  .sp-content {
+    padding: 30px;
+  }
 
-    .sp-title {
-        font-size: 32px;
-    }
+  .sp-title {
+    font-size: 32px;
+  }
 
-    .sp-section-title {
-        font-size: 24px;
-    }
+  .sp-section-title {
+    font-size: 24px;
+  }
 
-    .sp-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+  .sp-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 480px) {
-    .sp-header,
-    .sp-content {
-        padding: 20px;
-    }
+  .sp-header,
+  .sp-content {
+    padding: 20px;
+  }
 
-    .sp-title {
-        font-size: 28px;
-    }
+  .sp-title {
+    font-size: 28px;
+  }
 
-    .sp-section-title {
-        font-size: 22px;
-    }
+  .sp-section-title {
+    font-size: 22px;
+  }
 
-    .sp-grid {
-        grid-template-columns: 1fr;
-    }
+  .sp-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .sp-procedures-list {
-        grid-template-columns: 1fr;
-    }
+  .sp-procedures-list {
+    grid-template-columns: 1fr;
+  }
 }

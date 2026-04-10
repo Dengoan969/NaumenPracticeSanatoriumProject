@@ -1,219 +1,225 @@
 /* Футер */
 footer {
-    height: 290px;
-    background-color: #474444;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-family: 'Raleway', sans-serif;
-    width: 100%;
-    margin-top: auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-    position: relative;
+  height: 290px;
+  background-color: #474444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+  margin-top: auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .footer-content {
-    width: 1109px;
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 1109px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
 }
 
 .vk-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .vk-container:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .vk-container i {
-    font-size: 32px;
+  font-size: 32px;
 }
 
 .footer-center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
 }
 
 .footer-center i {
-    font-size: 6rem;
-    color: #8e8d8d;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+  font-size: 6rem;
+  color: #8e8d8d;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .footer-center i:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .footer-right {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 385px;
-    max-width: 100%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 385px;
+  max-width: 100%;
+  align-items: center;
 }
 
 .feedback-container {
-    position: relative;
-    width: 100%;
-    max-width: 385px;
-    height: 145px;
-    border: 1px solid white;
-    border-radius: 10px;
-    background-color: transparent;
-    margin-top: 0;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
+  position: relative;
+  width: 100%;
+  max-width: 385px;
+  height: 145px;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: transparent;
+  margin-top: 0;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
 }
 
 .feedback-container:hover {
-    border-color: #84BFEA;
+  border-color: #84bfea;
 }
 
 .feedback-container textarea {
-    width: calc(100% - 20px);
-    height: calc(100% - 20px);
-    padding: 10px;
-    border: none;
-    background-color: transparent;
-    color: white;
-    resize: none;
-    font-family: 'Raleway', sans-serif;
-    outline: none;
-    box-sizing: border-box;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  resize: none;
+  font-family: "Raleway", sans-serif;
+  outline: none;
+  box-sizing: border-box;
 }
 
 .feedback-container textarea::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .feedback-container button {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-    transition: color 0.3s ease;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.3s ease;
 }
 
 .feedback-container button:hover {
-    color: #84BFEA;
+  color: #84bfea;
 }
 
 .feedback-text {
-    width: 100%;
-    max-width: 385px;
-    text-align: center;
-    margin-bottom: 0;
-    font-size: 16px;
+  width: 100%;
+  max-width: 385px;
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 16px;
 }
 
 /* Адаптивность футера */
 @media (max-width: 768px) {
-    footer {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-        gap: 30px;
-    }
+  footer {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    gap: 30px;
+  }
 
-    .footer-content {
-        flex-direction: column;
-        gap: 30px;
-    }
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
 
-    .footer-center {
-        position: static;
-        transform: none;
-        order: 2;
-    }
+  .footer-center {
+    position: static;
+    transform: none;
+    order: 2;
+  }
 
-    .footer-center i {
-        font-size: 4rem;
-    }
+  .footer-center i {
+    font-size: 4rem;
+  }
 
-    .footer-left,
-    .footer-right {
-        width: 100%;
-        text-align: center;
-    }
+  .footer-left,
+  .footer-right {
+    width: 100%;
+    text-align: center;
+  }
 
-    .footer-left {
-        align-items: center;
-    }
+  .footer-left {
+    align-items: center;
+  }
 
-    .feedback-text {
-        width: 100%;
-        padding: 0 20px;
-    }
+  .feedback-text {
+    width: 100%;
+    padding: 0 20px;
+  }
 }
 
 .feedback-message-container {
-    min-height: 20px;
-    margin-top: 8px;
-    width: 100%;
-    text-align: center;
+  min-height: 20px;
+  margin-top: 8px;
+  width: 100%;
+  text-align: center;
 }
 
 .feedback-notification {
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 14px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    animation: fadeIn 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  animation: fadeIn 0.3s ease;
 }
 
 .feedback-notification.success {
-    background-color: rgba(76, 175, 80, 0.1);
-    color: #2e7d32;
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #2e7d32;
 }
 
 .feedback-notification.error {
-    background-color: rgba(244, 67, 54, 0.1);
-    color: #c62828;
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #c62828;
 }
 
 .feedback-notification i {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .char-counter {
-    color: #666;
-    font-size: 14px;
+  color: #666;
+  font-size: 14px;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Обновите стиль для текстового поля при ошибке */
 .feedback-container textarea.error {
-    border-color: #f44336;
+  border-color: #f44336;
 }

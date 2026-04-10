@@ -1,73 +1,75 @@
 /* NewsPage.css */
 .n-news-page-container {
-    max-width: 1200px;
-    margin: 80px auto;
-    padding: 40px 20px 0;
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 40px 20px 0;
 }
 
 .n-news-header {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .n-news-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: #333;
-    text-align: left;
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  text-align: left;
 }
 
 .n-news-content-wrapper {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .n-pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    gap: 10px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-.n-page-number, .n-page-nav {
-    padding: 8px 16px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-    border-radius: 4px;
-    font-family: 'Raleway', sans-serif;
-    transition: all 0.3s ease;
-    min-width: 40px;
-    text-align: center;
+.n-page-number,
+.n-page-nav {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: "Raleway", sans-serif;
+  transition: all 0.3s ease;
+  min-width: 40px;
+  text-align: center;
 }
 
-.n-page-number:hover, .n-page-nav:hover {
-    background-color: #f0f0f0;
+.n-page-number:hover,
+.n-page-nav:hover {
+  background-color: #f0f0f0;
 }
 
 .n-page-number.active {
-    background-color: #333;
-    color: #fff;
-    border-color: #333;
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
 }
 
 .n-page-nav:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @media (max-width: 768px) {
-    .n-news-page-container {
-        padding: 20px 15px;
-        margin: 40px auto;
-    }
+  .n-news-page-container {
+    padding: 20px 15px;
+    margin: 40px auto;
+  }
 
-    .n-news-title {
-        font-size: 28px;
-    }
+  .n-news-title {
+    font-size: 28px;
+  }
 
-    .n-pagination {
-        gap: 5px;
-    }
+  .n-pagination {
+    gap: 5px;
+  }
 }
