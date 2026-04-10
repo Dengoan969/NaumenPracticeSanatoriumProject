@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import jakarta.persistence.EntityNotFoundException;
 import ru.naumen.sanatoriumproject.models.FeedbackMessage;
+import ru.naumen.sanatoriumproject.models.User;
 import ru.naumen.sanatoriumproject.repositories.FeedbackMessageRepository;
 
 @Service
