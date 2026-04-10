@@ -1,0 +1,60 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghcr.io/dengoan969/sanatorium-project:latest
+    container_name: sanatorium-app
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: production
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/sanatorium_db
+      SPRING_DATASOURCE_USERNAME: sanatorium
+      SPRING_DATASOURCE_PASSWORD: sanatorium_secret
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      POLYTECHNIK_APP_JWTSECRET: sanatorium_jwt_secret_key_for_dev
+      POLYTECHNIK_APP_JWTEXPIRATIONMS: "86400000"
+      POLYTECHNIK_APP_CORS_ALLOWEDORIGINS: http://localhost:3000
+      NEWS_UPLOAD_DIR: /app/uploads/news
+      FILE_MAX_SIZE: 5MB
+      FILE_ALLOWED_TYPES: image/jpeg,image/png,image/gif
+    ports:
+      - "8080:8080"
+    volumes:
+      - uploads_data:/app/uploads
+    networks:
+      - sanatorium-net
+
+  db:
+    image: postgres:17-alpine
+    container_name: sanatorium-db
+    environment:
+      POSTGRES_DB: sanatorium_db
+      POSTGRES_USER: sanatorium
+      POSTGRES_PASSWORD: sanatorium_secret
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sanatorium -d sanatorium_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - sanatorium-net
+
+  cache:
+    image: redis:7-alpine
+    container_name: sanatorium-cache
+    command: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
+    networks:
+      - sanatorium-net
+
+volumes:
+  db_data:
+  uploads_data:
+
+networks:
+  sanatorium-net:
+    driver: bridge
