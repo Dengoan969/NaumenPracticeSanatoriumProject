@@ -1,12 +1,12 @@
 .profile-page-container {
-    width: 100%;
-    max-width: 1109px;
-    margin: 132px auto 0;
-    padding: 0 15px;
+  width: 100%;
+  max-width: 1109px;
+  margin: 132px auto 0;
+  padding: 0 15px;
 }
 
 @media (max-width: 768px) {
-    .profile-page-container {
-        margin-top: 80px;
-    }
+  .profile-page-container {
+    margin-top: 80px;
+  }
 }

@@ -1,222 +1,222 @@
 /* Обёртка для страницы */
 .about-wrapper {
-    width: 1109px;
-    max-width: 100%;
-    margin: 132px auto 0;
-    padding: 0 0 60px;
+  width: 1109px;
+  max-width: 100%;
+  margin: 132px auto 0;
+  padding: 0 0 60px;
 }
 
 /* Основной контейнер */
 .about-container {
-    width: 100%;
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Шапка страницы */
 .about-header {
-    padding: 40px 70px;
-    border-bottom: 1px solid #eee;
+  padding: 40px 70px;
+  border-bottom: 1px solid #eee;
 }
 
 .about-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    font-weight: 700;
-    color: #333;
-    margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
 }
 
 /* Основное содержимое */
 .about-content {
-    padding: 40px 70px;
+  padding: 40px 70px;
 }
 
 /* Секции */
 .about-section {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: #196397;
-    margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #196397;
+  margin-bottom: 20px;
 }
 
 .section-text {
-    font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 15px;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 15px;
 }
 
 /* Списки */
 .section-list {
-    list-style-type: none;
-    padding-left: 20px;
-    margin: 20px 0;
+  list-style-type: none;
+  padding-left: 20px;
+  margin: 20px 0;
 }
 
 .section-list li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 10px;
-    font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
 }
 
 .section-list li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #23618E;
-    font-size: 20px;
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #23618e;
+  font-size: 20px;
 }
 
 /* Карточки особенностей */
 .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
 }
 
 .feature-card {
-    padding: 25px;
-    border-radius: 12px;
-    background: #f9f9f9;
-    transition: all 0.3s ease;
+  padding: 25px;
+  border-radius: 12px;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon {
-    width: 50px;
-    height: 50px;
-    background: rgba(35, 97, 142, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
+  width: 50px;
+  height: 50px;
+  background: rgba(35, 97, 142, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
 .feature-title {
-    font-family: 'Raleway', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #196397;
-    margin: 0 0 10px 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #196397;
+  margin: 0 0 10px 0;
 }
 
 .feature-text {
-    font-family: 'Raleway', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #666;
-    margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666;
+  margin: 0;
 }
 
 /* Секция с призывом к действию */
 .cta-section {
-    background: #5697c6;
-    padding: 30px;
-    border-radius: 12px;
-    color: white;
+  background: #5697c6;
+  padding: 30px;
+  border-radius: 12px;
+  color: white;
 }
 
 .cta-section .section-title {
-    color: white;
+  color: white;
 }
 
 .cta-section .section-text {
-    color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 24px;
-    background: white;
-    color: #297db8;
-    font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 30px;
-    margin-top: 20px;
-    transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: white;
+  color: #297db8;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 30px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-    background: #f0f0f0;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .justify-text {
-    text-align: justify;
-    text-justify: inter-word;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Обновленные иконки */
 .feature-icon svg {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .about-wrapper {
-        margin: 80px auto 0;
-        padding: 0 20px;
-    }
+  .about-wrapper {
+    margin: 80px auto 0;
+    padding: 0 20px;
+  }
 
-    .about-header,
-    .about-content {
-        padding: 30px;
-    }
+  .about-header,
+  .about-content {
+    padding: 30px;
+  }
 
-    .about-title {
-        font-size: 32px;
-    }
+  .about-title {
+    font-size: 32px;
+  }
 
-    .section-title {
-        font-size: 24px;
-    }
+  .section-title {
+    font-size: 24px;
+  }
 
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
-    .about-header,
-    .about-content {
-        padding: 20px;
-    }
+  .about-header,
+  .about-content {
+    padding: 20px;
+  }
 
-    .about-title {
-        font-size: 28px;
-    }
+  .about-title {
+    font-size: 28px;
+  }
 
-    .section-title {
-        font-size: 22px;
-    }
+  .section-title {
+    font-size: 22px;
+  }
 
-    .section-text,
-    .section-list li {
-        font-size: 15px;
-    }
+  .section-text,
+  .section-list li {
+    font-size: 15px;
+  }
 }

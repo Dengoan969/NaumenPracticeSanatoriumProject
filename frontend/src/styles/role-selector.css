@@ -1,106 +1,106 @@
 .role-selector {
-    width: 100%;
-    max-width: 1109px;
-    margin: 0 auto;
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 20px 0;
-    border-radius: 20px;
-    overflow: hidden;
+  width: 100%;
+  max-width: 1109px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .content-wrapper {
-    width: 1109px;
-    max-width: 100%;
-    margin: 0 auto;
+  width: 1109px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .role-container {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    padding: 0px 30px;
-    scrollbar-width: thin;
-    scrollbar-color: #84BFEA #f5f5f5;
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 0px 30px;
+  scrollbar-width: thin;
+  scrollbar-color: #84bfea #f5f5f5;
 }
 
 .role-container::-webkit-scrollbar {
-    height: 8px;
+  height: 8px;
 }
 
 .role-container::-webkit-scrollbar-track {
-    background: #f5f5f5;
-    border-radius: 10px;
+  background: #f5f5f5;
+  border-radius: 10px;
 }
 
 .role-container::-webkit-scrollbar-thumb {
-    background-color: #84BFEA;
-    border-radius: 10px;
+  background-color: #84bfea;
+  border-radius: 10px;
 }
 
 .role-card {
-    min-width: 180px;
-    padding: 15px;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  min-width: 180px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .role-card:hover {
-    background-color: #e6f2fa;
+  background-color: #e6f2fa;
 }
 
 .role-card.active {
-    border-color: #23618E;
-    background-color: #e6f2fa;
-    box-shadow: 0 4px 8px rgba(35, 97, 142, 0.2);
+  border-color: #23618e;
+  background-color: #e6f2fa;
+  box-shadow: 0 4px 8px rgba(35, 97, 142, 0.2);
 }
 
 .role-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #84BFEA;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 18px;
-    margin-bottom: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #84bfea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .role-name {
-    font-size: 16px;
-    font-weight: 700;
-    color: #23618E;
-    margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #23618e;
+  margin: 0;
 }
 
 .role-desc {
-    font-size: 12px;
-    color: #454545;
-    margin: 5px 0 0 0;
+  font-size: 12px;
+  color: #454545;
+  margin: 5px 0 0 0;
 }
 
 @media (max-width: 768px) {
-    .role-selector {
-        margin-top: 15px;
-        padding: 15px 0;
-    }
+  .role-selector {
+    margin-top: 15px;
+    padding: 15px 0;
+  }
 
-    .role-container {
-        gap: 10px;
-        padding: 0 15px;
-    }
+  .role-container {
+    gap: 10px;
+    padding: 0 15px;
+  }
 
-    .role-card {
-        min-width: 150px;
-        padding: 10px;
-    }
+  .role-card {
+    min-width: 150px;
+    padding: 10px;
+  }
 }

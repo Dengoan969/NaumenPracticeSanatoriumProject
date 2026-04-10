@@ -1,37 +1,60 @@
-HELP.md
+# SanatoriumProject — .gitignore
+# Стек: Java 21 / Spring Boot + React / PostgreSQL
+
+# Сборка (Maven)
 target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+*.jar
+*.war
+*.ear
+*.class
+*.log
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
+# IDE
+.idea/
 *.iml
 *.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+*.iws
 .vscode/
-/.gitattributes
-/mvnw
-/mvnw.cmd
-/.mvn/
+.settings/
+.project
+.classpath
+.factorypath
+.springBeans
+
+# ОС
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Frontend (React / npm)
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.env.local
+frontend/.env.*.local
+
+# Секреты и локальные конфиги
+*.properties.local
+*.pem
+*.key
+*.jks
+*.p12
+secrets/
+.env
+
+# База данных (локальные дампы)
+*.sql.backup
+*.dump
+
+# Загружаемые файлы
+uploads/
+
+# Временные файлы
+tmp/
+logs/
+*.tmp
+*.bak
+*.orig

@@ -13,6 +13,7 @@ import ru.naumen.sanatoriumproject.models.User;
 import ru.naumen.sanatoriumproject.repositories.RegistrationRepository;
 import ru.naumen.sanatoriumproject.repositories.UserRepository;
 import ru.naumen.sanatoriumproject.services.AppointmentService;
+import ru.naumen.sanatoriumproject.services.ProcedureCompletionService;
 import ru.naumen.sanatoriumproject.services.UserService;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class UserController {
     private final UserService userService;
     private final RegistrationRepository registrationRepository;
     private final AppointmentService appointmentService;
+    private final ProcedureCompletionService procedureCompletionService;
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
