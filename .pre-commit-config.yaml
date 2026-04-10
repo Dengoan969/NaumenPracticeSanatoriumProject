@@ -1,0 +1,35 @@
+repos:
+  # ──────────────────────────────────────────
+  # Базовые проверки (универсальные)
+  # ──────────────────────────────────────────
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace       # Удаляет пробелы в конце строк
+      - id: end-of-file-fixer         # Пустая строка в конце файла
+      - id: check-yaml                # Валидация YAML-синтаксиса
+      - id: check-json                # Валидация JSON-синтаксиса
+      - id: check-added-large-files   # Блокирует файлы > 10 MB
+        args: ["--maxkb=10240"]
+      - id: check-merge-conflict      # Блокирует незакрытые конфликты слияния
+
+  # ──────────────────────────────────────────
+  # Поиск секретов (безопасность)
+  # ──────────────────────────────────────────
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
+    hooks:
+      - id: gitleaks                  # Поиск случайно закоммиченных паролей, токенов, ключей
+
+  # ──────────────────────────────────────────
+  # Frontend: ESLint (React/JS)
+  # ──────────────────────────────────────────
+  - repo: local
+    hooks:
+      - id: eslint
+        name: ESLint — проверка JS/JSX
+        entry: cmd /c cd /d frontend && npx eslint --ext .js,.jsx src/
+        language: system
+        types_or: [javascript]
+        pass_filenames: false
+        always_run: true
