@@ -50,6 +50,7 @@ public class ProcedureCompletionService {
         return convertToDto(saved);
     }
 
+    @Transactional(readOnly = true)
     public List<ProcedureCompletionDTO> getCompletionsByAppointment(Long appointmentId) {
         return completionRepository.findByAppointmentId(appointmentId)
                 .stream()
@@ -57,6 +58,7 @@ public class ProcedureCompletionService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public List<ProcedureCompletionDTO> getCompletionsByUser(Long userId) {
         return completionRepository.findByCompletedById(userId)
                 .stream()
@@ -64,6 +66,7 @@ public class ProcedureCompletionService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public List<ProcedureCompletionDTO> getCompletionsByUserAndShift(Long userId, Long shiftId) {
         return completionRepository.findByAppointment_StudentIdAndAppointment_ShiftId(userId, shiftId)
                 .stream()

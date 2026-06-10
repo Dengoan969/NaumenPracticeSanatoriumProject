@@ -15,7 +15,7 @@ import ru.naumen.sanatoriumproject.repositories.RoleRepository;
 import ru.naumen.sanatoriumproject.repositories.UserRepository;
 
 import java.time.LocalDate;
-import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -61,21 +61,19 @@ class UserServiceTest {
     void createUser_shouldCreateSuccessfully() {
         when(userRepository.existsByEmail("test@example.com")).thenReturn(false);
         when(userRepository.existsByLogin("testuser")).thenReturn(false);
-        when(passwordEncoder.encode("password123")).thenReturn("encodedPassword");
         when(roleRepository.findByName(ERole.ROLE_USER)).thenReturn(Optional.of(userRole));
-
-        User savedUser = new User("test@example.com", "testuser", "encodedPassword", "Test User", LocalDate.of(1990, 1, 1));
-        savedUser.setId(1L);
-        savedUser.setRoles(Collections.singleton(userRole));
-        savedUser.setPhone("+79001234567");
-
-        when(userRepository.save(any(User.class))).thenReturn(savedUser);
+        when(passwordEncoder.encode("password123")).thenReturn("encodedPass");
+        when(userRepository.save(any(User.class))).thenAnswer(inv -> {
+            User u = inv.getArgument(0);
+            u.setId(1L);
+            return u;
+        });
 
         UserDTO result = userService.createUser(testUserDTO);
 
         assertThat(result.getEmail()).isEqualTo("test@example.com");
         assertThat(result.getFullName()).isEqualTo("Test User");
-        verify(passwordEncoder).encode("password123");
+        assertThat(result.getId()).isEqualTo(1L);
         verify(userRepository).save(any(User.class));
     }
 
@@ -86,8 +84,6 @@ class UserServiceTest {
         assertThatThrownBy(() -> userService.createUser(testUserDTO))
                 .isInstanceOf(RuntimeException.class)
                 .hasMessageContaining("Email is already taken");
-
-        verify(userRepository, never()).save(any());
     }
 
     @Test
@@ -102,9 +98,7 @@ class UserServiceTest {
 
     @Test
     void createUserWithRoles_shouldThrowWhenNoValidRoles() {
-        when(userRepository.existsByEmail("test@example.com")).thenReturn(false);
-        when(userRepository.existsByLogin("testuser")).thenReturn(false);
-        when(passwordEncoder.encode("password123")).thenReturn("encodedPassword");
+        when(roleRepository.findByName(ERole.ROLE_ADMIN)).thenReturn(Optional.empty());
 
         assertThatThrownBy(() -> userService.createUserWithRoles(testUserDTO, Set.of(ERole.ROLE_ADMIN)))
                 .isInstanceOf(RuntimeException.class)

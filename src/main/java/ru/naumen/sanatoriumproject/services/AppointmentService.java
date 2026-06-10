@@ -2,6 +2,7 @@ package ru.naumen.sanatoriumproject.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.naumen.sanatoriumproject.dtos.AppointmentDTO;
 import ru.naumen.sanatoriumproject.models.*;
 import ru.naumen.sanatoriumproject.repositories.*;
@@ -18,18 +19,21 @@ public class AppointmentService {
     private final UserRepository userRepository;
     private final ShiftRepository shiftRepository;
 
+    @Transactional(readOnly = true)
     public List<AppointmentDTO> getAppointmentsByShift(Long shiftId) {
         return appointmentRepository.findByShiftId(shiftId).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public List<AppointmentDTO> getAppointmentsByStudent(Long studentId) {
         return appointmentRepository.findByStudentId(studentId).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public AppointmentDTO createAppointment(AppointmentDTO appointmentDTO) {
         Procedure procedure = procedureRepository.findById(appointmentDTO.getProcedureId())
                 .orElseThrow(() -> new RuntimeException("Procedure not found"));
@@ -52,10 +56,12 @@ public class AppointmentService {
         return convertToDto(savedAppointment);
     }
 
+    @Transactional
     public void deleteAppointment(Long id) {
         appointmentRepository.deleteById(id);
     }
 
+    @Transactional
     public AppointmentDTO updateAppointmentNote(Long id, String note) {
         Appointment appointment = appointmentRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Appointment not found"));
@@ -65,12 +71,14 @@ public class AppointmentService {
         return convertToDto(updatedAppointment);
     }
 
+    @Transactional(readOnly = true)
     public List<AppointmentDTO> getAppointmentsByShiftAndCabinet(Long shiftId, Long cabinetId) {
         return appointmentRepository.findByShiftIdAndProcedure_CabinetId(shiftId, cabinetId).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public List<AppointmentDTO> getAppointmentsByStudentAndShift(Long studentId, Long shiftId) {
         return appointmentRepository.findByStudentIdAndShiftId(studentId, shiftId).stream()
                 .map(this::convertToDto)
