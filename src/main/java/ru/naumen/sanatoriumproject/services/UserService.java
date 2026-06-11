@@ -6,6 +6,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.naumen.sanatoriumproject.dtos.UserDTO;
+import ru.naumen.sanatoriumproject.metrics.BusinessMetrics;
 import ru.naumen.sanatoriumproject.models.ERole;
 import ru.naumen.sanatoriumproject.models.Role;
 import ru.naumen.sanatoriumproject.models.User;
@@ -24,6 +25,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
+    private final BusinessMetrics businessMetrics;
 
     public List<UserDTO> getRegularUsers() {
         Role userRole = roleRepository.findByName(ERole.ROLE_USER)
@@ -57,6 +59,7 @@ public class UserService {
         user.setRoles(Collections.singleton(userRole));
 
         User savedUser = userRepository.save(user);
+        businessMetrics.incrementUsersRegistered();
         return convertToDto(savedUser);
     }
 
@@ -90,6 +93,7 @@ public class UserService {
 
         user.setRoles(roles);
         User savedUser = userRepository.save(user);
+        businessMetrics.incrementUsersRegistered();
         return convertToDto(savedUser);
     }
 

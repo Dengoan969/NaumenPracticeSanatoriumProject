@@ -1,0 +1,108 @@
+{
+  "dashboard": {
+    "title": "Infrastructure Overview",
+    "tags": ["infrastructure", "node-exporter", "sanatorium"],
+    "refresh": "30s",
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "CPU Usage (%)",
+        "type": "gauge",
+        "gridPos": { "h": 8, "w": 6, "x": 0, "y": 0 },
+        "targets": [
+          {
+            "expr": "(1 - avg(rate(node_cpu_seconds_total{mode=\"idle\"}[5m]))) * 100",
+            "legendFormat": "CPU %"
+          }
+        ],
+        "thresholds": [
+          { "value": 70, "color": "yellow" },
+          { "value": 90, "color": "red" }
+        ],
+        "description": "Общее использование CPU"
+      },
+      {
+        "id": 2,
+        "title": "Memory Usage (%)",
+        "type": "gauge",
+        "gridPos": { "h": 8, "w": 6, "x": 6, "y": 0 },
+        "targets": [
+          {
+            "expr": "(1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100",
+            "legendFormat": "Memory %"
+          }
+        ],
+        "thresholds": [
+          { "value": 70, "color": "yellow" },
+          { "value": 90, "color": "red" }
+        ],
+        "description": "Использование оперативной памяти"
+      },
+      {
+        "id": 3,
+        "title": "Disk Usage (%)",
+        "type": "gauge",
+        "gridPos": { "h": 8, "w": 6, "x": 12, "y": 0 },
+        "targets": [
+          {
+            "expr": "(1 - node_filesystem_avail_bytes{mountpoint=\"/\"} / node_filesystem_size_bytes{mountpoint=\"/\"}) * 100",
+            "legendFormat": "Disk %"
+          }
+        ],
+        "thresholds": [
+          { "value": 80, "color": "yellow" },
+          { "value": 95, "color": "red" }
+        ],
+        "description": "Использование дискового пространства"
+      },
+      {
+        "id": 4,
+        "title": "Network I/O",
+        "type": "timeseries",
+        "gridPos": { "h": 8, "w": 6, "x": 18, "y": 0 },
+        "targets": [
+          {
+            "expr": "rate(node_network_receive_bytes_total[5m])",
+            "legendFormat": "RX"
+          },
+          {
+            "expr": "rate(node_network_transmit_bytes_total[5m])",
+            "legendFormat": "TX"
+          }
+        ],
+        "description": "Сетевой трафик (RX/TX)"
+      },
+      {
+        "id": 5,
+        "title": "CPU Usage by Mode",
+        "type": "timeseries",
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+        "targets": [
+          {
+            "expr": "avg(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m])) by (mode) * 100",
+            "legendFormat": "{{ mode }}"
+          }
+        ],
+        "description": "Распределение CPU по режимам"
+      },
+      {
+        "id": 6,
+        "title": "Monitored Targets",
+        "type": "stat",
+        "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+        "targets": [
+          {
+            "expr": "count(up == 1)",
+            "legendFormat": "Up"
+          },
+          {
+            "expr": "count(up == 0)",
+            "legendFormat": "Down"
+          }
+        ],
+        "description": "Количество доступных/недоступных targets"
+      }
+    ]
+  }
+}

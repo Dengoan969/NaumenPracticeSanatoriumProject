@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.naumen.sanatoriumproject.dtos.AppointmentDTO;
+import ru.naumen.sanatoriumproject.metrics.BusinessMetrics;
 import ru.naumen.sanatoriumproject.models.*;
 import ru.naumen.sanatoriumproject.repositories.*;
 
@@ -18,6 +19,7 @@ public class AppointmentService {
     private final ProcedureRepository procedureRepository;
     private final UserRepository userRepository;
     private final ShiftRepository shiftRepository;
+    private final BusinessMetrics businessMetrics;
 
     @Transactional(readOnly = true)
     public List<AppointmentDTO> getAppointmentsByShift(Long shiftId) {
@@ -53,6 +55,7 @@ public class AppointmentService {
         appointment.setNotes(appointmentDTO.getNotes());
 
         Appointment savedAppointment = appointmentRepository.save(appointment);
+        businessMetrics.incrementAppointments();
         return convertToDto(savedAppointment);
     }
 

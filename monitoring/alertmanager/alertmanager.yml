@@ -1,0 +1,74 @@
+global:
+  resolve_timeout: 5m
+
+  # SMTP настройки для email уведомлений
+  smtp_smarthost: 'smtp.yandex.ru:465'
+  smtp_from: 'alertmanager@yourdomain.ru'
+  smtp_auth_username: 'your-username@yandex.ru'
+  smtp_auth_password: 'YOUR_APP_PASSWORD'
+  smtp_require_tls: true
+
+route:
+  receiver: 'email-default'
+  group_by: ['alertname', 'severity']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 4h
+
+  routes:
+    # Critical алерты -> Email (приоритетный)
+    - match:
+        severity: critical
+      receiver: 'email-critical'
+      continue: true
+
+    # Warning алерты -> Только Email
+    - match:
+        severity: warning
+      receiver: 'email-warning'
+
+receivers:
+  # Email по умолчанию
+  - name: 'email-default'
+    email_configs:
+      - to: 'team@yourdomain.ru'
+        send_resolved: true
+        headers:
+          Subject: '[{{ .Status | toUpper }}] {{ .CommonLabels.alertname }}'
+        html: |
+          <h2>{{ .CommonLabels.alertname }}</h2>
+          <p><strong>Status:</strong> {{ .Status }}</p>
+          <p><strong>Severity:</strong> {{ .CommonLabels.severity }}</p>
+          <p>{{ .CommonAnnotations.description }}</p>
+          {{ if .CommonAnnotations.runbook_url }}
+          <p><a href="{{ .CommonAnnotations.runbook_url }}">Runbook</a></p>
+          {{ end }}
+
+  # Critical алерты -> Приоритетный Email
+  - name: 'email-critical'
+    email_configs:
+      - to: 'oncall@yourdomain.ru'
+        send_resolved: true
+        html: |
+          <h2 style="color: red;">CRITICAL: {{ .CommonLabels.alertname }}</h2>
+          <p><strong>Time:</strong> {{ .StartsAt }}</p>
+          <p><strong>Description:</strong> {{ .CommonAnnotations.description }}</p>
+          <p><strong>Runbook:</strong> <a href="{{ .CommonAnnotations.runbook_url }}">Link</a></p>
+
+  # Warning алерты -> Обычный Email
+  - name: 'email-warning'
+    email_configs:
+      - to: 'team@yourdomain.ru'
+        send_resolved: true
+        html: |
+          <h2 style="color: orange;">WARNING: {{ .CommonLabels.alertname }}</h2>
+          <p>{{ .CommonAnnotations.description }}</p>
+
+# Inhibition rules: подавление зависимых алертов
+inhibit_rules:
+  # Если critical firing, не показывать warning для того же алерта
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'instance']

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 import ru.naumen.sanatoriumproject.dtos.RegistrationDTO;
+import ru.naumen.sanatoriumproject.metrics.BusinessMetrics;
 import ru.naumen.sanatoriumproject.models.*;
 import ru.naumen.sanatoriumproject.repositories.*;
 
@@ -20,6 +21,7 @@ public class RegistrationService {
     private final UserRepository userRepository;
     private final RoomRepository roomRepository;
     private final ShiftRepository shiftRepository;
+    private final BusinessMetrics businessMetrics;
 
     @Transactional
     public RegistrationDTO registerUser(RegistrationDTO registrationDTO) {
@@ -53,6 +55,7 @@ public class RegistrationService {
             registration.setCheckInDate(registrationDTO.getCheckInDate());
             registration.setCheckOutDate(registrationDTO.getCheckOutDate());
             Registration saved = registrationRepository.save(registration);
+            businessMetrics.incrementRegistrations();
             return convertToDTO(saved);
         }
     }

@@ -1,0 +1,104 @@
+{
+  "dashboard": {
+    "title": "API Golden Signals",
+    "tags": ["api", "production", "sanatorium"],
+    "refresh": "30s",
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Request Rate (RPS)",
+        "type": "stat",
+        "gridPos": { "h": 8, "w": 6, "x": 0, "y": 0 },
+        "targets": [
+          {
+            "expr": "sum(rate(http_server_requests_seconds_count[5m]))",
+            "legendFormat": "RPS"
+          }
+        ],
+        "description": "Общее количество запросов в секунду"
+      },
+      {
+        "id": 2,
+        "title": "Error Rate (%)",
+        "type": "stat",
+        "gridPos": { "h": 8, "w": 6, "x": 6, "y": 0 },
+        "targets": [
+          {
+            "expr": "(sum(rate(http_server_requests_seconds_count{status=~\"5..\"}[5m])) / sum(rate(http_server_requests_seconds_count[5m]))) * 100",
+            "legendFormat": "Error %"
+          }
+        ],
+        "thresholds": [
+          { "value": 1, "color": "yellow" },
+          { "value": 5, "color": "red" }
+        ],
+        "description": "Процент ошибок 5xx"
+      },
+      {
+        "id": 3,
+        "title": "Latency (p95)",
+        "type": "timeseries",
+        "gridPos": { "h": 8, "w": 6, "x": 12, "y": 0 },
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, sum(rate(http_server_requests_seconds_bucket[5m])) by (le))",
+            "legendFormat": "p95"
+          },
+          {
+            "expr": "histogram_quantile(0.50, sum(rate(http_server_requests_seconds_bucket[5m])) by (le))",
+            "legendFormat": "p50"
+          }
+        ],
+        "description": "Задержка ответа API (перцентили)"
+      },
+      {
+        "id": 4,
+        "title": "Active Requests",
+        "type": "gauge",
+        "gridPos": { "h": 8, "w": 6, "x": 18, "y": 0 },
+        "targets": [
+          {
+            "expr": "sum(http_server_requests_seconds_count)",
+            "legendFormat": "Active"
+          }
+        ],
+        "description": "Текущее количество активных запросов"
+      },
+      {
+        "id": 5,
+        "title": "Request Rate by Endpoint",
+        "type": "bar",
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+        "targets": [
+          {
+            "expr": "sum(rate(http_server_requests_seconds_count[5m])) by (uri)",
+            "legendFormat": "{{ uri }}"
+          }
+        ],
+        "description": "Распределение запросов по эндпоинтам"
+      },
+      {
+        "id": 6,
+        "title": "HTTP Status Codes",
+        "type": "timeseries",
+        "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+        "targets": [
+          {
+            "expr": "sum(rate(http_server_requests_seconds_count{status=~\"2..\"}[5m]))",
+            "legendFormat": "2xx"
+          },
+          {
+            "expr": "sum(rate(http_server_requests_seconds_count{status=~\"4..\"}[5m]))",
+            "legendFormat": "4xx"
+          },
+          {
+            "expr": "sum(rate(http_server_requests_seconds_count{status=~\"5..\"}[5m]))",
+            "legendFormat": "5xx"
+          }
+        ],
+        "description": "Распределение HTTP статусов"
+      }
+    ]
+  }
+}
