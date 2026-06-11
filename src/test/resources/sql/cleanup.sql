@@ -1,0 +1,31 @@
+-- Cleanup all test data (order matters due to FK constraints)
+SET REFERENTIAL_INTEGRITY FALSE;
+
+DELETE FROM procedure_completions;
+DELETE FROM appointments;
+DELETE FROM procedures;
+DELETE FROM staff_cabinets;
+DELETE FROM cabinets;
+DELETE FROM feedback_messages;
+DELETE FROM news;
+DELETE FROM registrations;
+DELETE FROM rooms;
+DELETE FROM shifts;
+DELETE FROM user_roles;
+DELETE FROM users;
+DELETE FROM roles;
+
+-- Reset auto-increment sequences for all tables
+ALTER TABLE users ALTER COLUMN id RESTART WITH 1;
+ALTER TABLE roles ALTER COLUMN id RESTART WITH 1;
+ALTER TABLE shifts ALTER COLUMN id RESTART WITH 1;
+ALTER TABLE rooms ALTER COLUMN id RESTART WITH 1;
+ALTER TABLE registrations ALTER COLUMN id RESTART WITH 1;
+ALTER TABLE cabinets ALTER COLUMN id RESTART WITH 1;
+ALTER TABLE procedures ALTER COLUMN id RESTART WITH 1;
+ALTER TABLE appointments ALTER COLUMN id RESTART WITH 1;
+ALTER TABLE procedure_completions ALTER COLUMN id RESTART WITH 1;
+ALTER TABLE news ALTER COLUMN id RESTART WITH 1;
+ALTER TABLE feedback_messages ALTER COLUMN id RESTART WITH 1;
+
+SET REFERENTIAL_INTEGRITY TRUE;
