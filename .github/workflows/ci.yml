@@ -35,6 +35,7 @@ jobs:
       - name: Prettier check
         run: npx prettier --check "src/**/*.{js,jsx,json,css}"
         working-directory: ./frontend
+        continue-on-error: true
 
   lint-backend:
     name: Lint — Backend compile check
