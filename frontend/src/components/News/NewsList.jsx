@@ -12,7 +12,7 @@ const NewsList = ({ news }) => {
           <div className="news-list-content">
             <h3>{item.title}</h3>
             <p className="news-list-date">
-              {new Date(item.createdAt).toLocaleDateString()}
+              {new Date(item.createdAt).toLocaleDateString('ru-RU')}
             </p>
             <p className="news-list-text">{item.content}</p>
           </div>
