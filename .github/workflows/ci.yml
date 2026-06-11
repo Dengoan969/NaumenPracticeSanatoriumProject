@@ -190,6 +190,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: maven
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Resolve Maven dependencies
+        run: mvn dependency:resolve -q
+
       - name: Run Trivy filesystem scan
         uses: aquasecurity/trivy-action@master
         with:
