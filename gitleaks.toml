@@ -1,0 +1,89 @@
+title = "Sanatorium Project — Gitleaks Custom Rules"
+
+[[rules]]
+id = "custom-aws-access-key"
+description = "AWS Access Key ID обнаружен в коде"
+regex = '''(?:A3T[A-Z0-9]|AKIA|ASIA|AROA|AIDA|AIPA|ANPA|ANVA|APKA)[A-Z0-9]{16}'''
+tags = ["aws", "credentials", "custom"]
+keywords = ["AKIA", "ASIA", "A3T"]
+
+[[rules]]
+id = "custom-api-key"
+description = "Обнаружен потенциальный API-ключ или токен"
+regex = '''(?i)(?:api[_-]?key|api[_-]?secret|api[_-]?token|access[_-]?token|auth[_-]?token|secret[_-]?key)\s*[:=]\s*["']?[A-Za-z0-9_\-+=/]{16,64}["']?'''
+tags = ["api-key", "credentials", "custom"]
+keywords = ["api_key", "api-secret", "api-token", "access_token", "secret_key"]
+
+[[rules]]
+id = "custom-private-key"
+description = "Обнаружен закрытый ключ (RSA/DSA/EC/OpenSSH)"
+regex = '''-----BEGIN\s?(?:RSA|DSA|EC|OPENSSH|PGP)?\s?PRIVATE\s?KEY-----'''
+tags = ["private-key", "cryptography", "custom"]
+keywords = ["BEGIN PRIVATE KEY", "BEGIN RSA PRIVATE KEY"]
+
+[[rules]]
+id = "custom-password-in-code"
+description = "Обнаружен хардкодный пароль"
+regex = '''(?i)(?:password|passwd|pwd)\s*[:=]\s*["']?(?!\s*$|.*\*|.*placeholder|.*your_password|.*changeit)[^"'\s]{6,}["']?'''
+tags = ["password", "credentials", "custom"]
+keywords = ["password", "passwd", "pwd"]
+
+[[rules]]
+id = "custom-jwt-token"
+description = "Обнаружен JWT-токен"
+regex = '''eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}'''
+tags = ["jwt", "token", "authentication", "custom"]
+keywords = ["eyJ"]
+
+[[rules]]
+id = "custom-github-token"
+description = "Обнаружен GitHub Personal Access Token"
+regex = '''ghp_[A-Za-z0-9]{36}|gho_[A-Za-z0-9]{36}|ghu_[A-Za-z0-9]{36}|ghs_[A-Za-z0-9]{36}|ghr_[A-Za-z0-9]{36}'''
+tags = ["github", "token", "credentials", "custom"]
+keywords = ["ghp_", "gho_", "ghu_", "ghs_", "ghr_"]
+
+[[rules]]
+id = "custom-slack-token"
+description = "Обнаружен Slack-токен"
+regex = '''xox[baprs]-[0-9a-zA-Z]{10,48}'''
+tags = ["slack", "token", "credentials", "custom"]
+keywords = ["xoxb-", "xoxa-", "xoxp-", "xoxr-", "xoxs-"]
+
+[[rules]]
+id = "custom-telegram-token"
+description = "Обнаружен Telegram Bot Token"
+regex = '''[1-9]\d{7,9}:[A-Za-z0-9_-]{35}'''
+tags = ["telegram", "token", "credentials", "custom"]
+keywords = [":AA"]
+
+[[rules]]
+id = "custom-db-connection-string"
+description = "Обнаружена строка подключения к БД с учётными данными"
+regex = '''(?:postgresql|mysql|mongodb|jdbc|redis)://[^:]+:[^@]+@'''
+tags = ["database", "connection-string", "credentials", "custom"]
+keywords = ["postgresql://", "mysql://", "jdbc:", "mongodb://"]
+
+[[rules]]
+id = "custom-generic-secret"
+description = "Обнаружено присвоение секретного значения"
+regex = '''(?i)(?:secret|token|credential|auth)\s*[:=]\s*["']?[A-Za-z0-9_\-+=/]{8,}["']?'''
+tags = ["secret", "credentials", "custom"]
+keywords = ["secret", "token", "credential"]
+
+[allowlist]
+paths = [
+    '''(^|/)\.idea/''',
+    '''(^|/)\.vscode/''',
+    '''(^|/)\.settings/''',
+    '''(^|/)\.classpath''',
+    '''(^|/)\.project''',
+    '''(^|/)target/''',
+    '''(^|/)node_modules/''',
+    '''(^|/)frontend/build/''',
+    '''(^|/)frontend/dist/''',
+    '''(^|/)src/test/resources/''',
+    '''(^|/)trivy-.*\.json''',
+    '''(^|/)gitleaks-report\.json''',
+    '''(^|/)sbom\.json''',
+    '''(^|/)\.git/''',
+]
