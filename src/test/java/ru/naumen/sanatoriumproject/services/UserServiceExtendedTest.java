@@ -8,6 +8,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import ru.naumen.sanatoriumproject.dtos.UserDTO;
+import ru.naumen.sanatoriumproject.metrics.BusinessMetrics;
 import ru.naumen.sanatoriumproject.models.ERole;
 import ru.naumen.sanatoriumproject.models.Role;
 import ru.naumen.sanatoriumproject.models.User;
@@ -35,6 +36,9 @@ class UserServiceExtendedTest {
 
     @Mock
     private PasswordEncoder passwordEncoder;
+
+    @Mock
+    private BusinessMetrics businessMetrics;
 
     @InjectMocks
     private UserService userService;

@@ -9,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 import ru.naumen.sanatoriumproject.dtos.RegistrationDTO;
+import ru.naumen.sanatoriumproject.metrics.BusinessMetrics;
 import ru.naumen.sanatoriumproject.models.*;
 import ru.naumen.sanatoriumproject.repositories.*;
 
@@ -35,6 +36,9 @@ class RegistrationServiceTest {
 
     @Mock
     private ShiftRepository shiftRepository;
+
+    @Mock
+    private BusinessMetrics businessMetrics;
 
     @InjectMocks
     private RegistrationService registrationService;

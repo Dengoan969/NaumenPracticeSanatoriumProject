@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.naumen.sanatoriumproject.dtos.AppointmentDTO;
+import ru.naumen.sanatoriumproject.metrics.BusinessMetrics;
 import ru.naumen.sanatoriumproject.models.*;
 import ru.naumen.sanatoriumproject.repositories.*;
 
@@ -33,6 +34,9 @@ class AppointmentServiceTest {
 
     @Mock
     private ShiftRepository shiftRepository;
+
+    @Mock
+    private BusinessMetrics businessMetrics;
 
     @InjectMocks
     private AppointmentService appointmentService;
